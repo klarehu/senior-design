@@ -22,7 +22,7 @@ void Axis::setTargetPosition(int target) {
 }
 
 boolean Axis::stepTowardTarget() {
-	return false;
+	return true;
 }
 
 void Axis::step(int direction) {

@@ -42,7 +42,7 @@ void sendOK() {
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Hello");
+  Serial.println("Firmware Loaded.");
 }
 
 
