@@ -15,25 +15,28 @@ Axis::Axis(char idenfitier, int dirPin, int stepPin, int delayTime) {
 void Axis::reset() {
 	__position = 0.0;
 	__target = 0.0;
+	__moveRequired = false;
 }
 
 void Axis::setTargetPosition(int target) {
 	__target = target;
+	if(__target != __position) {
+		__moveRequired = true;
+	}
 }
 
-boolean Axis::stepTowardTarget() {
-	return true;
+void Axis::stepTowardTarget() {
+	if(!__moveRequired) {
+		return;
+	}
+
+	step((__target > __position) ? 1 : -1);
 }
 
 void Axis::step(int direction) {
 	__target += direction;
 
-	if(direction == 1) {
-		digitalWrite(__dirPin, HIGH);
-	}
-	else if(direction == -1) {
-		digitalWrite(__dirPin, LOW);
-	}
+	digitalWrite(__dirPin, (direction == 1) ? HIGH : LOW);
 
 	digitalWrite(__stepPin, HIGH);
 	delayMicroseconds(__delayTime);
@@ -53,7 +56,7 @@ int Axis::getDelayTime() {
 }
 
 boolean Axis::moveRequired() {
-	return __position == __target;
+	return __moveRequired;
 }
 
 char Axis::getIdentifier() {

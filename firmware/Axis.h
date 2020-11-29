@@ -8,7 +8,7 @@ public:
     Axis(char identifier, int dirPin, int stepPin, int delayTime);
     void reset();
     void setTargetPosition(int target);
-    boolean stepTowardTarget();
+    void stepTowardTarget();
     void step(int direction);
     int getStepPin();
     int getDirPin();
@@ -23,6 +23,7 @@ private:
     int __delayTime;
     float __position;
     float __target;
+    boolean __moveRequired;
 };
 
 #endif
