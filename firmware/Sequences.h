@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "Axis.h"
 #include "Utility.h"
+#include "Definitions.h"
 
-void parseGCode(Axis axes[], String line);
+void homeAxes(Axis axes[]);

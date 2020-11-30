@@ -8,22 +8,27 @@
 #include "Axis.h"
 #include "Definitions.h"
 #include "Parser.h"
+#include "Sequences.h"
 
 Axis xAxis = Axis('X', xDirPin, xStepPin, delayTime);
 Axis yAxis = Axis('Y', yDirPin, yStepPin, delayTime);
+Axis uAxis = Axis('U', uDirPin, uStepPin, delayTime);
 Axis zAxis = Axis('Z', zDirPin, zStepPin, delayTime);
 Axis collectorAxis = Axis('E', collectorDirPin, collectorStepPin, delayTime);
 Axis unrollerAxis = Axis('F', unrollerDirPin, unrollerStepPin, delayTime);
 
-Axis axes[] = {xAxis, yAxis, zAxis, collectorAxis, unrollerAxis};
+Axis axes[] = {xAxis, yAxis, uAxis, zAxis, collectorAxis, unrollerAxis};
 
 String serialLine;
 char delimiter = '\n';
 String OK = "OK";
+int baudRate = 9600;
 
 void setup() {
-    Serial.begin(9600);
-    Serial.println("Firmware Loaded.");
+    Serial.begin(baudRate);
+    Serial.println("Firmware Loaded.\nHoming axes..");
+    homeAxes(axes);
+    Serial.println("Printer Ready.");
 }
 
 void loop() {

@@ -19,24 +19,13 @@ void runUntilFinished(Axis axes[]) {
     }
 }
 
-Axis findStateByIdentifier(Axis axes[], char c) {
-    int axesLength = sizeof(axes) / sizeof(axes[0]);
-    for(int i = 0; i < axesLength; i++) {
-        if(axes[i].getIdentifier() == c) {
-            return axes[i];
-        }
-    }
-    Serial.println('ERROR FINDING AXIS BY IDENTIFIER');
-    return axes[0];
-}
-
 void parseG0(Axis axes[], String command) {
     String leftToParse = command;
     int nextSpace = leftToParse.indexOf(' ');
     while(nextSpace != -1) {
         char axis = leftToParse.charAt(0);
         float value = leftToParse.substring(1, nextSpace).toFloat();
-        Axis toMove = findStateByIdentifier(axes, axis);
+        Axis toMove = getAxisByName(axes, axis);
         toMove.setTargetPosition(value);
 
         Serial.println("Axis " + String(axis) + ":" + String(value));
