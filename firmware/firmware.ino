@@ -26,9 +26,7 @@ int baudRate = 9600;
 
 void setup() {
     Serial.begin(baudRate);
-    Serial.println("Firmware Loaded.\nHoming axes..");
-    homeAxes(axes);
-    Serial.println("Printer Ready.");
+    Serial.println("Firmware Loaded.\nPrinter Ready.");
 }
 
 void loop() {

@@ -42,9 +42,21 @@ void parseGCode(Axis axes[], String line) {
         return;
     }
 
-    if(line.substring(0, 2) == "G0") {
+    String command = line.substring(0, 2);
+
+    if(command == "G0") {
         Serial.println("Parsing G0...");
         String commands = line.substring(3);
         parseG0(axes, commands+" ");
+    }
+    else if(command == "H0") {
+        Serial.println("Homing printer...");
+        homeAxes(axes);
+    }
+    else if(command == "T1") {
+        Serial.println("Laser ON! (Not implemented)");
+    }
+    else if(command == "T0") {
+        Serial.println("Laser OFF! (Not implemented)");
     }
 }
