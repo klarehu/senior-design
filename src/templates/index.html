@@ -7,31 +7,76 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
   </head>
   <body>
-    <div class="container grid text-center">
-      <div class="row sort-text">
-        <div class="col-md text-middle" id="sorting">
-        </div>
-      </div>
+    <div class="title">Space Jam!</div>
+
+    <div class="container">
+
       <div class="row">
-        <div class="col-md">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">Start Print</button>
+        <div class="col col-spacing">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+            <img src="{{ url_for('static', filename='assets/upload.svg') }}" class="img-fluid icon">
+            <div class="button-text">Upload Print</div>
+          </button>
         </div>
-        <div class="col-md">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">Home Axes</button>
+
+        <div class="col col-spacing">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+            <img src="{{ url_for('static', filename='assets/home.svg') }}" class="img-fluid icon">
+            <div class="button-text">Home Axes</div>
+          </button>
         </div>
-        <div class="col-md">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">Home Roller</button>
-        </div>
-        <div class="col-md">
-          <button type="button" class="btn btn-outline-danger" onclick="fn()">Abort Motion</button>
+
+        <div class="col col-spacing">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+            <img src="{{ url_for('static', filename='assets/settings.svg') }}" class="img-fluid icon">
+            <div class="button-text">Home Roller</div>
+          </button>
         </div>
       </div>
-      <div class="row trow">
-        <div class="col-md" id="trow">
+
+      <div class="row">
+        <div class="col col-spacing">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+            <img src="{{ url_for('static', filename='assets/upload.svg') }}" class="img-fluid icon">
+            <div class="button-text">Upload Print</div>
+          </button>
         </div>
+
+        <div class="col col-spacing">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+            <img src="{{ url_for('static', filename='assets/home.svg') }}" class="img-fluid icon">
+            <div class="button-text">Home Axes</div>
+          </button>
+        </div>
+        
+        <div class="col col-spacing">
+          <button type="button" class="btn btn-outline-danger" onclick="fn()">
+            <img src="{{ url_for('static', filename='assets/remove.svg') }}" class="img-fluid icon">
+            <div class="button-text">Abort Motion</div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="start-print">
+      <div class="start-print-text">Start Print</div>
+      <div class="arrow bounce">
+        <img src="{{ url_for('static', filename='assets/down-arrow.svg') }}" class="img-fluid down-arrow">
       </div>
     </div>
-    <div class="title">Space Jam!</div>
+    
+
+
+<!--     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div> -->
   </body>
   <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 </html>
