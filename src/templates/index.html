@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <!-- Screen Resolution: 480 (wide) x 800 (tall) -->
+    <title>Space Jam!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
+  </head>
+  <body>
+    <div class="container grid text-center">
+      <div class="row sort-text">
+        <div class="col-md text-middle" id="sorting">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">Start Print</button>
+        </div>
+        <div class="col-md">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">Home Axes</button>
+        </div>
+        <div class="col-md">
+          <button type="button" class="btn btn-outline-primary" onclick="fn()">Home Roller</button>
+        </div>
+        <div class="col-md">
+          <button type="button" class="btn btn-outline-danger" onclick="fn()">Abort Motion</button>
+        </div>
+      </div>
+      <div class="row trow">
+        <div class="col-md" id="trow">
+        </div>
+      </div>
+    </div>
+    <div class="title">Space Jam!</div>
+  </body>
+  <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+</html>
