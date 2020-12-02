@@ -1,6 +1,10 @@
+html {
+  overflow: hidden;
+}
+
 body {
-    background-color: black;
-    color: #ffffff;
+    background-color: #09101d;
+    color: #4fbbd6;
     text-align: center;
 }
 
@@ -8,6 +12,13 @@ body {
     font-family: 'Tahoma';
     src: url('Tahoma-Bold.woff2') format('woff2'),
          url('Tahoma-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lithos';
+    src: url('Lithos.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -22,16 +33,16 @@ body {
 }
 
 .title {
-    font-family: 'Tahoma';
+    font-family: 'Lithos';
     text-align: center;
-    color: #ffffff;
+    color: #4fbbd6;
     font-size: 4.5em;
-    top: 1em;
+    padding-top: 1em;
     padding-bottom: 1em;
 }
 
 .icon {
-    width: 80%;
+    width: 60%;
     padding-top: 1em;
 }
 
@@ -42,6 +53,8 @@ body {
 .row {
     margin-top: 2em;
     margin-bottom: 3em;
+    margin-left: -35px;
+    margin-right: -35px;
 }
 
 .trow {
@@ -52,17 +65,54 @@ body {
 .btn {
     font-size: 2em;
     margin-top: 1em;
-    /*padding: 0.2em 0.55em 0.2em 0.55em;*/
+    border-color: #4fbbd6;
+    border-width: 3px;
+    color: #4fbbd6;
+    background-color: #242730;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:visited,
+.btn-outline-primary:focus {
+    background-color: #4fbbd6;
+    border-color: #4fbbd6;
+}
+
+.abort-button {
+  color: #C32F27;
+  border-color: #C32F27;
 }
 
 .button-text {
     padding-top: 1em
 }
 
+.status-menu {
+    font-size: 35px;
+    position: absolute;
+    left: 0vw;
+    bottom: 1.8em;
+}
+
+.status-row {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.status-text {
+    text-align: right;
+}
+
+.status-badge {
+    text-align: left;
+}
+
 .start-print {
     position: absolute;
-    right: 0em;
+    right: -4em;
     bottom: 0.5em;
+    color: #4fbbd6;
 }
 
 .start-print-text {

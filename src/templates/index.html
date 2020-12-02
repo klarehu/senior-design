@@ -28,7 +28,7 @@
 
         <div class="col col-spacing">
           <button type="button" class="btn btn-outline-primary" onclick="fn()">
-            <img src="{{ url_for('static', filename='assets/settings.svg') }}" class="img-fluid icon">
+            <img src="{{ url_for('static', filename='assets/foam-roller.svg') }}" class="img-fluid icon">
             <div class="button-text">Home Roller</div>
           </button>
         </div>
@@ -37,15 +37,15 @@
       <div class="row">
         <div class="col col-spacing">
           <button type="button" class="btn btn-outline-primary" onclick="fn()">
-            <img src="{{ url_for('static', filename='assets/upload.svg') }}" class="img-fluid icon">
-            <div class="button-text">Upload Print</div>
+            <img src="{{ url_for('static', filename='assets/settings.svg') }}" class="img-fluid icon">
+            <div class="button-text">Settings</div>
           </button>
         </div>
 
         <div class="col col-spacing">
           <button type="button" class="btn btn-outline-primary" onclick="fn()">
-            <img src="{{ url_for('static', filename='assets/home.svg') }}" class="img-fluid icon">
-            <div class="button-text">Home Axes</div>
+            <img src="{{ url_for('static', filename='assets/info.svg') }}" class="img-fluid icon">
+            <div class="button-text">Printer Info</div>
           </button>
         </div>
         
@@ -59,12 +59,43 @@
 
     </div>
 
+    <div class="container status-menu">
+      <div class="row w-75 status-row">
+        <div class="col status-text">
+          Printer Status:
+        </div>
+        <div class="col status-badge">
+          <span class="badge badge-success">Operational</span>
+        </div>
+      </div>
+      <div class="row w-75 status-row">
+        <div class="col status-text">
+          X/Y Status:
+        </div>
+        <div class="col status-badge">
+          <span class="badge badge-success">Operational</span>
+        </div>
+      </div>
+      <div class="row w-75 status-row">
+        <div class="col status-text">
+          Roller Status:
+        </div>
+        <div class="col status-badge">
+          <span class="badge badge-success">Operational</span>
+        </div>
+      </div>
+    </div>
+
+
+
     <div class="start-print">
       <div class="start-print-text">Start Print</div>
       <div class="arrow bounce">
         <img src="{{ url_for('static', filename='assets/down-arrow.svg') }}" class="img-fluid down-arrow">
       </div>
     </div>
+
+    
     
 
 
