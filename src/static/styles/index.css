@@ -1,6 +1,6 @@
-html {
+/*html {
   overflow: hidden;
-}
+}*/
 
 body {
     background-color: #09101d;
@@ -110,9 +110,10 @@ body {
 
 .start-print {
     position: absolute;
-    right: -4em;
     bottom: 0.5em;
+    right: 0;
     color: #4fbbd6;
+    text-align: middle;
 }
 
 .start-print-text {
@@ -121,7 +122,7 @@ body {
 }
 
 .arrow {
-  text-align: center;
+  text-align: middle;
   margin: 8% 0;
 }
 

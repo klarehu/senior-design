@@ -13,21 +13,22 @@
 
       <div class="row">
         <div class="col col-spacing">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+          <input type="file" id="fileupload" style="display:none"/> 
+          <button type="button" id="openFileUpload" class="btn btn-outline-primary">
             <img src="{{ url_for('static', filename='assets/upload.svg') }}" class="img-fluid icon">
             <div class="button-text">Upload Print</div>
           </button>
         </div>
 
         <div class="col col-spacing">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+          <button type="button" class="btn btn-outline-primary" onclick="homeAxes()">
             <img src="{{ url_for('static', filename='assets/home.svg') }}" class="img-fluid icon">
             <div class="button-text">Home Axes</div>
           </button>
         </div>
 
         <div class="col col-spacing">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+          <button type="button" class="btn btn-outline-primary" onclick="homeRoller()">
             <img src="{{ url_for('static', filename='assets/foam-roller.svg') }}" class="img-fluid icon">
             <div class="button-text">Home Roller</div>
           </button>
@@ -36,21 +37,21 @@
 
       <div class="row">
         <div class="col col-spacing">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+          <button type="button" class="btn btn-outline-primary" onclick="openSettings()">
             <img src="{{ url_for('static', filename='assets/settings.svg') }}" class="img-fluid icon">
             <div class="button-text">Settings</div>
           </button>
         </div>
 
         <div class="col col-spacing">
-          <button type="button" class="btn btn-outline-primary" onclick="fn()">
+          <button type="button" class="btn btn-outline-primary" onclick="printerInfo()">
             <img src="{{ url_for('static', filename='assets/info.svg') }}" class="img-fluid icon">
             <div class="button-text">Printer Info</div>
           </button>
         </div>
         
         <div class="col col-spacing">
-          <button type="button" class="btn btn-outline-danger" onclick="fn()">
+          <button type="button" class="btn btn-outline-danger" onclick="abortMotion()">
             <img src="{{ url_for('static', filename='assets/remove.svg') }}" class="img-fluid icon">
             <div class="button-text">Abort Motion</div>
           </button>
@@ -87,7 +88,6 @@
     </div>
 
 
-
     <div class="start-print">
       <div class="start-print-text">Start Print</div>
       <div class="arrow bounce">
@@ -95,8 +95,6 @@
       </div>
     </div>
 
-    
-    
 
 
 <!--     <div class="input-group mb-3">

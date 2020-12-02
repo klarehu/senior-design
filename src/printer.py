@@ -5,5 +5,5 @@ class Printer:
 	def start(self):
 		return self
 
-	def start_print(self):
+	def startPrint(self):
 		print("Starting printjob!")

@@ -12,10 +12,26 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/start_print', methods=['GET', 'POST'])
-def start_print():
+@app.route('/startPrint', methods=['GET', 'POST'])
+def startPrint():
     global printer
     if ENABLE_PRINTER:
-        printer.start_print()
+        printer.startPrint()
     else:
         return "Printer not enabled!"
+
+@app.route('/homeAxes', methods=['GET'])
+def homeAxes():
+    print("Homing axes!")
+    return "Beeping and booping!"
+
+@app.route('/homeRoller', methods=['GET'])
+def homeRoller():
+    print("Homing roller!")
+    return "Let's hope the paper doesn't break..."
+
+@app.route('/abortMotion', methods=['GET'])
+def abortMotion():
+    print("Aborting motion!")
+    return "Warning Will Robinson, Danger! Danger!"
+
