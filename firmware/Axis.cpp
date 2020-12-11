@@ -14,33 +14,43 @@ Axis::Axis(char idenfitier, int dirPin, int stepPin, int delayTime) {
 
 void Axis::reset() {
 	__position = 0.0;
-	__target = 0.0;
-	__moveRequired = false;
+	this->__target = 0.0;
+	this->__moveRequired = false;
 }
 
 void Axis::setTargetPosition(int target) {
-	__target = target;
-	if(__target != __position) {
-		__moveRequired = true;
-	}
+	this->__target = target;
+	Serial.println("Target = "+ String(this->__target));
+	this->__moveRequired = this->__target != __position;
+	// if(this->__target != __position) {
+	// 	this->__moveRequired = true;
+	// 	// Serial.println("MOVE REQUIRED BY AXIS " + String(__identifier) + "    " + String((int)this));
+	// }
+	// else {
+	// 	this->__moveRequired = false;
+	// }
 }
 
 void Axis::stepTowardTarget() {
-	if(!__moveRequired) {
+	this->__moveRequired = this->__target != __position;
+	if(!this->__moveRequired) {
 		return;
 	}
-
-	step((__target > __position) ? 1 : -1);
+	Serial.println("STEPPING AXIS");
+	step((this->__target > __position) ? 1 : -1);
 }
 
 void Axis::step(int direction) {
-	__target += direction;
+	Serial.println("Step direction " + String(direction));
+	this->__position += direction;
+	Serial.println("Position:" + String(this->__position) + "  Target:" + String(this->__target) + "    Axis:" + this->__identifier);
 
 	digitalWrite(__dirPin, (direction == 1) ? HIGH : LOW);
 
 	digitalWrite(__stepPin, HIGH);
 	delayMicroseconds(__delayTime);
 	digitalWrite(__stepPin, LOW);
+	delayMicroseconds(__delayTime);
 }
 
 int Axis::getStepPin() {
@@ -56,7 +66,10 @@ int Axis::getDelayTime() {
 }
 
 boolean Axis::moveRequired() {
-	return __moveRequired;
+	// Serial.println("Querying Axis " + String(__identifier));;
+	// Serial.println("Target = "+ String(this->__target) + "   " + String(this->__moveRequired));
+	// Serial.println(String((int)this));
+	return this->__moveRequired;
 }
 
 char Axis::getIdentifier() {

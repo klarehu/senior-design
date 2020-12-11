@@ -30,3 +30,5 @@ This firmware is designed to run on an Arduino board connected with a Serial (US
 `T0`: Turns the laser diode OFF
 
 `T1`: Turns the laser diode ON
+
+`L0 [axis]`: Tests a limit switch of the given `axis` (`0`: x, `1`: y, `2`: u, `3`: z)

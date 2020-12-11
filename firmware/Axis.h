@@ -21,8 +21,8 @@ private:
     int __dirPin;
     int __stepPin;
     int __delayTime;
-    float __position;
-    float __target;
+    int __position;
+    int __target;
     boolean __moveRequired;
 };
 

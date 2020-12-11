@@ -4,3 +4,4 @@
 #include "Definitions.h"
 
 void homeAxes(Axis axes[]);
+void testLimitSwitch(int switchPin);
