@@ -55,7 +55,7 @@ class Printer:
 
     def rotateRoller(self):
         self.rollerPositionF -= 30000
-        self.rollerPositionE -= 56000
+        self.rollerPositionE -= 44000
         self.needToWrite.append('G0 F{} E{}\n'.format(self.rollerPositionF, self.rollerPositionE))
 
 if __name__ == '__main__':

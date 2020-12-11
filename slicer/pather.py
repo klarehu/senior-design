@@ -37,7 +37,7 @@ def fill(start, end, step):
 
 NUM_POINTS = 1
 LINE_STEP = 1
-STEP = 50
+STEP = 30
 
 
 class Pather:

@@ -10,8 +10,8 @@ f.write('G0 Z4200\n')
 
 for xs, ys in zip(all_xs, all_ys):
 	for x, y in zip(xs, ys):
-		x = (x-600) * 2.5
-		y = y*4
+		x = (x-600) * 6 - 500
+		y = y*5
 		f.write('G0 X{} Y{} U{}\n'.format(int(x), int(y), int(y)))
 
 f.write('G0 X0 Y0 U0')
