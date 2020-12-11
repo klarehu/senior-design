@@ -9,7 +9,7 @@ void homeYAxis(Axis axes[]) {
     int yState;
     int uState;
 
-    Serial.println("Homing Axis Y and U");
+    // Serial.println("Homing Axis Y and U");
 
     while(1) {
         yState = digitalRead(yLimitSwitchPin);
@@ -25,18 +25,18 @@ void homeYAxis(Axis axes[]) {
             break;
         }
     }
-    Serial.println("AXES Y AND U HOMED");
+    // Serial.println("AXES Y AND U HOMED");
     yAxis.reset();
     uAxis.reset();
 }
 
 void homeGenericAxis(Axis axes[], char axisName, int limitSwitchPin) {
-    Serial.println("Homing Axis " + String(axisName));
+    // Serial.println("Homing Axis " + String(axisName));
     Axis axis = getAxisByName(axes, axisName);
     while(digitalRead(limitSwitchPin) == LimitSwitchPull) {
         axis.step(1);
     }
-    Serial.println("HOMED AXIS " + String(axisName));
+    // Serial.println("HOMED AXIS " + String(axisName));
     axis.reset();
 }
 
@@ -58,5 +58,5 @@ void testLimitSwitch(int switchPin) {
     while(digitalRead(switchPin) == LimitSwitchPull) {
         continue;
     }
-    Serial.println("Limit switch pin activated!" + String(switchPin));
+    // Serial.println("Limit switch pin activated!" + String(switchPin));
 }

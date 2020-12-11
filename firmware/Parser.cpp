@@ -5,7 +5,7 @@ boolean allAxesDone(Axis axes[]) {
     int axesLength = 6;
     for(int i = 0; i < axesLength; i++) {
         if(axes[i].moveRequired()) {
-            Serial.println("Axis " + String(i) + " not finished!");
+            // Serial.println("Axis " + String(i) + " not finished!");
             return false;
         }
     }
@@ -19,20 +19,20 @@ void runUntilFinished(Axis axes[]) {
         for(int i = 0; i < axesLength; i++) {
             axes[i].stepTowardTarget();
         }
-        Serial.println("Moving axes...");
+        // Serial.println("Moving axes...");
     }
 }
 
 void parseG0(Axis axes[], String command) {
     String leftToParse = command;
     int nextSpace = leftToParse.indexOf(' ');
-    Serial.println("Next Space " + String(nextSpace));
+    // Serial.println("Next Space " + String(nextSpace));
     while(nextSpace != -1) {
         char axis = leftToParse.charAt(0);
 
         float value = leftToParse.substring(1, nextSpace).toInt();
 
-        Serial.println("Axis " + String(axis) + " to:" + String(value));
+        // Serial.println("Axis " + String(axis) + " to:" + String(value));
         value = value * -1; // flip so positive = away from motor
         // Axis toMove = getAxisByName(axes, axis);
         // toMove.setTargetPosition(value);
@@ -40,9 +40,9 @@ void parseG0(Axis axes[], String command) {
         // wtf?
         int axesLength = 6;
         for(int i = 0; i < axesLength; i++) {
-            Serial.println("Identifier=" + String(axes[i].getIdentifier()));
+            // Serial.println("Identifier=" + String(axes[i].getIdentifier()));
             if(axes[i].getIdentifier() == axis) {
-                Serial.println("Returning Axis " + String(i));
+                // Serial.println("Returning Axis " + String(i));
                 axes[i].setTargetPosition(value);
             }
         }
@@ -55,21 +55,21 @@ void parseG0(Axis axes[], String command) {
             break;
         }
         leftToParse = leftToParse.substring(nextSpace+1);
-        Serial.println("LeftToParse" + leftToParse);
+        // Serial.println("LeftToParse" + leftToParse);
 
         // if(axis == 'X') {
         //     break;
         // }
         // break;
         nextSpace = leftToParse.indexOf(' ');
-        Serial.println("Next Space " + String(nextSpace));
+        // Serial.println("Next Space " + String(nextSpace));
     }
     runUntilFinished(axes);
-    Serial.println("Done movement!");
+    // Serial.println("Done movement!");
 }
 
 void parseLimitSwitch(String command) {
-    Serial.println("Testing pin " + command);
+    // Serial.println("Testing pin " + command);
     if(command == "0") {
         testLimitSwitch(xLimitSwitchPin);
     }
@@ -93,21 +93,21 @@ void parseGCode(Axis axes[], String line) {
     String command = line.substring(0, 2);
 
     if(command == "G0") {
-        Serial.println("Parsing G0...");
+        // Serial.println("Parsing G0...");
         String commands = line.substring(3);
-        Serial.println("Commands:" + commands);
+        // Serial.println("Commands:" + commands);
         parseG0(axes, commands+" ");
     }
     else if(command == "H0") {
-        Serial.println("Homing printer...");
+        // Serial.println("Homing printer...");
         homeAxes(axes);
     }
     else if(command == "T1") {
-        Serial.println("Laser ON!");
+        // Serial.println("Laser ON!");
         digitalWrite(laserPin, HIGH);
     }
     else if(command == "T0") {
-        Serial.println("Laser OFF!");
+        // Serial.println("Laser OFF!");
         digitalWrite(laserPin, LOW);
     }
 
@@ -116,10 +116,10 @@ void parseGCode(Axis axes[], String line) {
     }
     else if(command == "SX") {
         Axis xAxis = getAxisByName(axes, 'X');
-        Serial.println("Got X Axis by name!");
+        // Serial.println("Got X Axis by name!");
         for(int i = 0; i < 5 * stepsPerRevolution; i++) {
             xAxis.step(1);
         }
-        Serial.println("Done stepping x-axis!");
+        // Serial.println("Done stepping x-axis!");
     }
 }

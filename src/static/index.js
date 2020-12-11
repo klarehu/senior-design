@@ -19,12 +19,14 @@ function homeRoller() {
     getRequest('homeRoller');
 }
 
-function openSettings() {
-    console.log('Opening settings!');
+function printSVG() {
+    console.log('Print SVG!');
+    getRequest('printSVG');
 }
 
-function printerInfo() {
-    console.log('Opening printer info!');
+function printPattern() {
+    console.log('Printing pattern!');
+    getRequest('printPattern')
 }
 
 function abortMotion() {

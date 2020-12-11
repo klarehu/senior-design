@@ -20,11 +20,11 @@ void Axis::reset() {
 
 void Axis::setTargetPosition(int target) {
 	this->__target = target;
-	Serial.println("Target = "+ String(this->__target));
+	// Serial.println("Target = "+ String(this->__target));
 	this->__moveRequired = this->__target != __position;
 	// if(this->__target != __position) {
 	// 	this->__moveRequired = true;
-	// 	// Serial.println("MOVE REQUIRED BY AXIS " + String(__identifier) + "    " + String((int)this));
+		// Serial.println("MOVE REQUIRED BY AXIS " + String(__identifier) + "    " + String((int)this));
 	// }
 	// else {
 	// 	this->__moveRequired = false;
@@ -36,14 +36,14 @@ void Axis::stepTowardTarget() {
 	if(!this->__moveRequired) {
 		return;
 	}
-	Serial.println("STEPPING AXIS");
+	// Serial.println("STEPPING AXIS");
 	step((this->__target > __position) ? 1 : -1);
 }
 
 void Axis::step(int direction) {
-	Serial.println("Step direction " + String(direction));
+	// Serial.println("Step direction " + String(direction));
 	this->__position += direction;
-	Serial.println("Position:" + String(this->__position) + "  Target:" + String(this->__target) + "    Axis:" + this->__identifier);
+	// Serial.println("Position:" + String(this->__position) + "  Target:" + String(this->__target) + "    Axis:" + this->__identifier);
 
 	digitalWrite(__dirPin, (direction == 1) ? HIGH : LOW);
 

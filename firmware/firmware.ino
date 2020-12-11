@@ -64,7 +64,7 @@ Adafruit_VL6180X tof1 = Adafruit_VL6180X();
 String serialLine;
 char delimiter = '\n';
 String OK = "OK";
-int baudRate = 9600;
+int baudRate = 115200;
 
 void setup() {
     Serial.begin(baudRate);
