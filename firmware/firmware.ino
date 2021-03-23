@@ -59,6 +59,7 @@ Axis unrollerAxis = Axis('F', unrollerDirPin, unrollerStepPin, delayTime);
 
 Axis axes[] = {xAxis, yAxis, uAxis, zAxis, collectorAxis, unrollerAxis};
 
+// distance sensors
 Adafruit_VL6180X tof1 = Adafruit_VL6180X();
 
 String serialLine;
