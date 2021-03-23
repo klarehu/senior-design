@@ -1,5 +1,6 @@
 #include "Utility.h"
 
+// "This is the godforsaken function that should work but doesn't." - Jeremy
 Axis getAxisByName(Axis axes[], char c) {
     // int axesLength = sizeof(axes) / sizeof(axes[0]);
     // Serial.println("Getting axis by identifier");
